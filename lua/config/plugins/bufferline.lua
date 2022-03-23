@@ -31,6 +31,7 @@ local function custom_filter(buf, buf_nums)
   end
   -- only show log buffers in secondary tabs
   return (tab_num == last_tab and is_log) or (tab_num ~= last_tab and not is_log)
+
 end
 
 require("bufferline").setup {
@@ -45,7 +46,7 @@ require("bufferline").setup {
       {
         filetype = "NvimTree",
         text = "File Explorer",
-        highlight = "PanelHeading",
+        highlight = "MoreMsg",
         padding = 1,
       }
     },

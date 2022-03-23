@@ -1,4 +1,3 @@
-
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 local list = {
   { key = {"<CR>", "<2-LeftMouse>"},          cb = tree_cb("edit") },
@@ -36,100 +35,6 @@ local list = {
   -- { key = "q",                            cb = tree_cb("close") },
 }
 
---require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
---auto_close = false,
---auto_reload_on_write = true,
---disable_netrw = false,
---hide_root_folder = false,
---hijack_cursor = false,
---hijack_netrw = true,
---hijack_unnamed_buffer_when_opening = false,
---ignore_buffer_on_setup = false,
---open_on_setup = false,
---open_on_tab = false,
---sort_by = "name",
---update_cwd = false,
---view = {
---  hide_root_folder = true,
---  auto_resize = true,
---  mappings = {
---    custom_only = true,
---    list = list,
---  },
---  width = 30,
---  height = 30,
---  side = "left",
---  preserve_window_proportions = false,
---  number = false,
---  relativenumber = false,
---  signcolumn = "yes",
---},
---hijack_directories = {
---  enable = true,
---  auto_open = true,
---},
---update_focused_file = {
---  enable = false,
---  update_cwd = false,
---  ignore_list = {},
---},
---ignore_ft_on_setup = {},
---system_open = {
---  cmd = nil,
---  args = {},
---},
---diagnostics = {
---  enable = false,
---  show_on_dirs = false,
---  icons = {
---    hint = "",
---    info = "",
---    warning = "",
---    error = "",
---  },
---},
---filters = {
---  dotfiles = false,
---  custom = {},
---  exclude = {},
---},
---git = {
---  enable = true,
---  ignore = true,
---  timeout = 400,
---},
---actions = {
---  change_dir = {
---    enable = true,
---    global = false,
---  },
---  open_file = {
---    quit_on_open = false,
---    resize_window = false,
---    window_picker = {
---      enable = true,
---      chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
---      exclude = {
---        filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
---        buftype = { "nofile", "terminal", "help" },
---      },
---    },
---  },
---},
---trash = {
---  cmd = "trash",
---  require_confirm = true,
---},
---log = {
---  enable = false,
---  truncate = false,
---  types = {
---    all = false,
---    config = false,
---    git = false,
---  },
---},
---}
 require'nvim-tree'.setup {
   disable_netrw = true,
   hijack_netrw = true,
@@ -214,25 +119,8 @@ require'nvim-tree'.setup {
   },
 }
 
---local function on_open()
--- -- require("bufferline.state").set_offset(31, "")
---end
---
---local function on_close()
---  -- require("bufferline.state").set_offset(0)
---end
---
---local tree_view = require "nvim-tree.view"
---local default_open = tree_view.open
---local default_close = tree_view.close
---
---tree_view.open = function()
---  on_open()
---  default_open()
---end
---
---tree_view.close = function()
---  on_close()
---  default_close()
---end
-
+vim.g.nvim_tree_git_hl = 1
+vim.g.nvim_tree_show_icons = {
+  git = false,
+  folders = false,
+}
