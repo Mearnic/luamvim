@@ -1,3 +1,7 @@
+require('config/plugins/bufferline')
+require('config/plugins/lualine')
+require('config/plugins/nvimtree')
+
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
     use 'glepnir/zephyr-nvim'
