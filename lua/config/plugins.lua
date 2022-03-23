@@ -1,26 +1,88 @@
-require('config/plugins/bufferline')
-require('config/plugins/lualine')
-require('config/plugins/nvimtree')
+local commit = {
+  bufferline = "871495d9e2dbe3314a421fd2d5e46f47de7ee537",
+  --    cmp_buffer = "f83773e2f433a923997c5faad7ea689ec24d1785",
+  --    cmp_luasnip = "d6f837f4e8fe48eeae288e638691b91b97d1737f",
+  --    cmp_nvim_lsp = "ebdfc204afb87f15ce3d3d3f5df0b8181443b5ba",
+  --    cmp_path = "c5230cb439df9547294678d0f1c1465ad7989e5f",
+  --    comment = "7365bfe9fc6dc004cc97b8977aa8129999d81bf5",
+  --    dapinstall = "24923c3819a450a772bb8f675926d530e829665f",
+  --    dashboard_nvim = "d82ddae95fd4dc4c3b7bbe87f09b1840fbf20ecb",
+  --    fixcursorhold = "0e4e22d21975da60b0fd2d302285b3b603f9f71e",
+  --    friendly_snippets = "4f6bd8eb5fbe0e45d57e732783ead2c3a01f549c",
+  --    gitsigns = "4a2d30f5fb77750c7a42be9bb58a9cc2c6c7f31d",
+  --    lua_dev = "a0ee77789d9948adce64d98700cc90cecaef88d5",
+  lualine = "9208bae98fd5d1ab6145868a8c48bfee53c1a499",
+  --    luasnip = "59576a5cf28556a393eedfe38467e998288fc905",
+  --    nlsp_settings = "3a3942b5d1da30e3ca0dc431aada3191c5952054",
+  --    null_ls = "59067dae4bf2367eb06326e419c23353722ecbec",
+  --    nvim_autopairs = "97e454ce9b1371373105716d196c1017394bc947",
+  --    nvim_cmp = "d93104244c3834fbd8f3dd01da9729920e0b5fe7",
+  --    nvim_dap = "c9a58267524f560112ecb6faa36ab2b5bc2f78a3",
+  nvim_lsp_installer = "88e44bbbe2e03523e08f2bd3c9a954675bc438f4",
+  nvim_lspconfig = "c51096481dc13193991571b7132740d762902355",
+  --    nvim_notify = "15f52efacd169ea26b0f4070451d3ea53f98cd5a",
+  nvim_tree = "2dfed89af7724f9e71d2fdbe3cde791a93e9b9e0",
+  --    nvim_treesitter = "620cc936ad6b26c59bb2d888b3890bb8d06c50c7",
+  --    nvim_ts_context_commentstring = "097df33c9ef5bbd3828105e4bee99965b758dc3f",
+  nvim_web_devicons = "634e26818f2bea9161b7efa76735746838971824",
+  packer = "7182f0ddbca2dd6f6723633a84d47f4d26518191",
+  --    plenary = "563d9f6d083f0514548f2ac4ad1888326d0a1c66",
+  --    popup = "b7404d35d5d3548a82149238289fa71f7f6de4ac",
+  --    project = "cef52b8da07648b750d7f1e8fb93f12cb9482988",
+  --    structlog = "6f1403a192791ff1fa7ac845a73de9e860f781f1",
+  --    telescope = "0011b1148d3975600f5a9f0be8058cdaac4e30d9",
+  --    telescope_fzf_native = "b8662b076175e75e6497c59f3e2799b879d7b954",
+  --    toggleterm = "d2ceb2ca3268d09db3033b133c0ee4642e07f059",
+  --    which_key = "28d2bd129575b5e9ebddd88506601290bb2bb221",
+}
 
-return require('packer').startup(function()
-    use 'wbthomason/packer.nvim'
-    use 'glepnir/zephyr-nvim'
-    use 'shaunsingh/nord.nvim'
-    use {
-        'ellisonleao/gruvbox.nvim',
-        requires = {'rktjmp/lush.nvim'}
-    }
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons'
-    }
-    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+local configurations = {
+  { 'wbthomason/packer.nvim', commit = commit.packer },
+  { 'glepnir/zephyr-nvim' },
+  { 'shaunsingh/nord.nvim' },
+  {
+    'ellisonleao/gruvbox.nvim',
+    requires = {'rktjmp/lush.nvim'}
+  },
+  {
+    'kyazdani42/nvim-tree.lua',
+    commit = commit.nvim_tree,
+    requires = { 'kyazdani42/nvim-web-devicons' }
+  },
+  {
+    'kyazdani42/nvim-web-devicons',
+    commit = commit.nvim_web_devicons,
+  },
+  {
+    'akinsho/bufferline.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    --commit = commit.bufferline,
+  },
+  --  {
+  --    'romgrk/barbar.nvim',
+  --    requires = 'kyazdani42/nvim-web-devicons',
+  --    commit = commit.barbar,
+  --  },
+  {
+    'nvim-lualine/lualine.nvim',
+    commit = commit.lualine,
+  },
+  {
+    'neovim/nvim-lspconfig',
+    commit = commit.nvim_lspconfig
+  },
+  {
+    'williamboman/nvim-lsp-installer',
+    commit = commit.nvim_lsp_installer
+  }
+}
 
-    use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
+local packer = require('packer');
 
+packer.startup(function(use)
+  for _, plugins in ipairs(configurations) do
+    for _, plugin in ipairs(plugins) do
+      use(plugin)
+    end
+  end
 end)
-

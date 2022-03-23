@@ -1,7 +1,14 @@
 require('config/plugins')
 
-require('config/properties')
+-- require('config/plugins/bufferline')
+require('config/plugins/lualine')
+require('config/plugins/nvimtree')
+require('config/plugins/bufferline')
 require('config/config')
 
-local keys = require('config/keys')
-keys.load_defaults()
+require('config/properties')
+
+require('onedarker')
+
+require('config/keys').load_defaults()
+

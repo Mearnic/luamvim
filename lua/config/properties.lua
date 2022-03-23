@@ -27,14 +27,14 @@ vim.o.signcolumn = "yes"
 -- 开启tab转空格
 vim.o.expandtab = true
 -- tab为几个空格
-vim.o.tabstop = 4
+vim.o.tabstop = 2
 -- 格式化tab为空格的个数
-vim.o.shiftwidth = 4
+vim.o.shiftwidth = 2
 -- 几个空格为tab
-vim.o.softtabstop = 4
+vim.o.softtabstop = 2
 -- >> << 长度
-vim.o.shiftwidth = 4
-vim.bo.shiftwidth = 4
+vim.o.shiftwidth = 2
+vim.bo.shiftwidth = 2
 
 -- 允许鼠标操作
 vim.o.mouse = "a"
@@ -47,4 +47,5 @@ vim.o.smartcase = true
 -- 不可见字符的显示，这里只把空格显示为一个点
 vim.o.list = true  
 vim.o.listchars = "tab:> ,trail:▫"
+
 
