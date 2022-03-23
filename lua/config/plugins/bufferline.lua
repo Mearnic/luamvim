@@ -45,8 +45,10 @@ require("bufferline").setup {
     offsets = {
       {
         filetype = "NvimTree",
-        text = "File Explorer",
-        highlight = "MoreMsg",
+--        text = "文件树",
+        text_align = "left",
+        text = " NvimTree",
+        highlight = "ExplorerTitle",
         padding = 1,
       }
     },

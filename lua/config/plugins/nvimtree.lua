@@ -120,6 +120,7 @@ require'nvim-tree'.setup {
 }
 
 vim.g.nvim_tree_git_hl = 1
+vim.g.nvim_tree_root_folder_modifier= ":t"
 vim.g.nvim_tree_show_icons = {
   git = false,
   folders = false,

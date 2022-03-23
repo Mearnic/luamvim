@@ -1,4 +1,5 @@
 local highlights = {
+  ExplorerTitle = { fg = C.orange, style = "bold", bg = C.alt_bg },
   Normal = { fg = C.fg, bg = Config.transparent_background and "NONE" or C.bg },
   SignColumn = { bg = C.bg },
   MsgArea = { fg = C.fg, bg = Config.transparent_background and "NONE" or C.bg },
@@ -92,7 +93,7 @@ local highlights = {
   Todo = { fg = C.red, bg = C.bg, style = "bold" },
   Error = { fg = C.error_red, bg = C.bg, style = "bold" },
   TabLine = { fg = C.light_gray, bg = C.alt_bg },
-  TabLineSel = { fg = C.fg, bg = C.alt_bg },
+  TabLineSel = { fg = C.fg, bg = C.orange },
   TabLineFill = { fg = C.fg, bg = C.alt_bg },
   CmpDocumentation = { fg = C.fg, bg = C.none },
   CmpDocumentationBorder = { fg = C.fg_dark, bg = C.none },
