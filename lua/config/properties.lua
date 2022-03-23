@@ -45,7 +45,10 @@ vim.o.smartcase = true
 
 
 -- 不可见字符的显示，这里只把空格显示为一个点
-vim.o.list = true  
+vim.o.list = true
 vim.o.listchars = "tab:> ,trail:▫"
 
+
+
+vim.cmd("colorscheme " .. "onedarker")
 

@@ -1,5 +1,5 @@
 local highlights = {
-  ExplorerTitle = { fg = C.orange, style = "bold", bg = C.alt_bg },
+  ExplorerTitle = { fg = C.orange, bg = C.alt_bg },
   Normal = { fg = C.fg, bg = Config.transparent_background and "NONE" or C.bg },
   SignColumn = { bg = C.bg },
   MsgArea = { fg = C.fg, bg = Config.transparent_background and "NONE" or C.bg },
