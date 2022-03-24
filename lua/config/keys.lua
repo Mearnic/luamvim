@@ -35,11 +35,6 @@ local generic_opts = {
 
 local defaults = {
     normal_mode= {
-        ['H']='M',
-        ['J']='5j',
-        ['K']='5k',
-        ['L']='zz',
-
         ['|']='J',
         ['?']='K',
 

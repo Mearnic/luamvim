@@ -33,7 +33,7 @@ local commit = {
   --    telescope = "0011b1148d3975600f5a9f0be8058cdaac4e30d9",
   --    telescope_fzf_native = "b8662b076175e75e6497c59f3e2799b879d7b954",
   --    toggleterm = "d2ceb2ca3268d09db3033b133c0ee4642e07f059",
-  --    which_key = "28d2bd129575b5e9ebddd88506601290bb2bb221",
+  which_key = "28d2bd129575b5e9ebddd88506601290bb2bb221",
 }
 
 local configurations = {
@@ -63,7 +63,12 @@ local configurations = {
   {
     'williamboman/nvim-lsp-installer',
     commit = commit.nvim_lsp_installer
-  }
+  },
+  {
+    "folke/which-key.nvim",
+    commit = commit.which_key,
+  },
+
 }
 
 local packer = require('packer');
@@ -75,3 +80,7 @@ packer.startup(function(use)
     end
   end
 end)
+
+require('config/plugins/nvimtree')
+require('config/plugins/bufferline')
+require('config/plugins/lualine')

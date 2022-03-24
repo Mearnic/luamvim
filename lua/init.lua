@@ -1,9 +1,6 @@
-require('config/plugins')
+require('lsp')
 
-require('config/plugins/nvimtree')
-require('config/plugins/bufferline')
-require('config/plugins/lualine')
-require('config/config')
+require('config/plugins')
 
 require('config/properties')
 
