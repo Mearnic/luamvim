@@ -15,11 +15,14 @@ require'nvim-treesitter.configs'.setup {
       scope_incremental = '<TAB>',
     }
   },
+  context_commentstring = {
+    enable = true
+  },
 
   -- List of parsers to ignore installing
   -- ignore_install = { "javascript" },
   indent = {
-    enable = true
+    -- enable = true
   },
 
   highlight = {
@@ -39,3 +42,4 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+

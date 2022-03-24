@@ -9,7 +9,7 @@ local commit = {
   which_key = "28d2bd129575b5e9ebddd88506601290bb2bb221",
 
   nvim_treesitter = "620cc936ad6b26c59bb2d888b3890bb8d06c50c7",
-  --    nvim_ts_context_commentstring = "097df33c9ef5bbd3828105e4bee99965b758dc3f",
+  nvim_ts_context_commentstring = "097df33c9ef5bbd3828105e4bee99965b758dc3f",
   --    nvim_notify = "15f52efacd169ea26b0f4070451d3ea53f98cd5a",
   --    luasnip = "59576a5cf28556a393eedfe38467e998288fc905",
   --    nlsp_settings = "3a3942b5d1da30e3ca0dc431aada3191c5952054",
@@ -42,7 +42,7 @@ local configurations = {
   {
     'kyazdani42/nvim-tree.lua',
     commit = commit.nvim_tree,
-    requires = { 'kyazdani42/nvim-web-devicons' }
+    requires = { 'kyazdani42/nvim-web-devicons' },
   },
   {
     'kyazdani42/nvim-web-devicons',
@@ -72,21 +72,20 @@ local configurations = {
 
   { "nvim-lua/plenary.nvim", commit = commit.plenary },
 
---  { "antoinemadec/FixCursorHold.nvim", commit = commit.fixcursorhold },
+  --  { "antoinemadec/FixCursorHold.nvim", commit = commit.fixcursorhold },
   {
     "nvim-telescope/telescope.nvim",
     commit = commit.telescope,
   },
---  {
---    "nvim-telescope/telescope-fzf-native.nvim",
---    commit = commit.telescope_fzf_native,
---    run = "make",
---  },
 
   {
     "nvim-treesitter/nvim-treesitter",
     commit = commit.nvim_treesitter,
     run = ':TSUpdate'
+  },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    commit = commit.nvim_ts_context_commentstring,
   },
 
 }
@@ -100,6 +99,7 @@ packer.startup(function(use)
     end
   end
 end)
+
 
 require('config/plugins/nvimtree')
 require('config/plugins/bufferline')
