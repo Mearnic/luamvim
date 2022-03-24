@@ -43,6 +43,14 @@ vim.o.mouse = "a"
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+-- 减少更新时间，默认4000ms
+vim.o.updatetime=300
+
+-- 命令交互等待时间
+vim.o.timeoutlen=300
+
+-- ESC响应卡顿问题
+vim.o.ttimeoutlen=0
 
 -- 不可见字符的显示，这里只把空格显示为一个点
 vim.o.list = true
