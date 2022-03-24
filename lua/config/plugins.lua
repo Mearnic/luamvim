@@ -8,7 +8,7 @@ local commit = {
   packer = "7182f0ddbca2dd6f6723633a84d47f4d26518191",
   which_key = "28d2bd129575b5e9ebddd88506601290bb2bb221",
 
-  --    nvim_treesitter = "620cc936ad6b26c59bb2d888b3890bb8d06c50c7",
+  nvim_treesitter = "620cc936ad6b26c59bb2d888b3890bb8d06c50c7",
   --    nvim_ts_context_commentstring = "097df33c9ef5bbd3828105e4bee99965b758dc3f",
   --    nvim_notify = "15f52efacd169ea26b0f4070451d3ea53f98cd5a",
   --    luasnip = "59576a5cf28556a393eedfe38467e998288fc905",
@@ -22,7 +22,7 @@ local commit = {
   --    project = "cef52b8da07648b750d7f1e8fb93f12cb9482988",
   --    structlog = "6f1403a192791ff1fa7ac845a73de9e860f781f1",
   telescope = "0011b1148d3975600f5a9f0be8058cdaac4e30d9",
-  --    telescope_fzf_native = "b8662b076175e75e6497c59f3e2799b879d7b954",
+  telescope_fzf_native = "b8662b076175e75e6497c59f3e2799b879d7b954",
   --    toggleterm = "d2ceb2ca3268d09db3033b133c0ee4642e07f059",
   --    cmp_buffer = "f83773e2f433a923997c5faad7ea689ec24d1785",
   --    cmp_luasnip = "d6f837f4e8fe48eeae288e638691b91b97d1737f",
@@ -77,6 +77,17 @@ local configurations = {
     "nvim-telescope/telescope.nvim",
     commit = commit.telescope,
   },
+--  {
+--    "nvim-telescope/telescope-fzf-native.nvim",
+--    commit = commit.telescope_fzf_native,
+--    run = "make",
+--  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    commit = commit.nvim_treesitter,
+    run = ':TSUpdate'
+  },
 
 }
 
@@ -95,4 +106,5 @@ require('config/plugins/bufferline')
 require('config/plugins/lualine')
 require('config/plugins/whichkey')
 require('config/plugins/telescope')
+require('config/plugins/treesitter')
 
