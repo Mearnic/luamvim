@@ -66,7 +66,7 @@ local defaults = {
     insert_mode = {
         ['<C-s>']='<ESC>:w<CR>',
 
-        ['<C-c>']='~<ESC>u', 
+        ['<C-c>']='~<ESC>u',
         ['<C-q>']='~<ESC>u',
 
 
@@ -78,8 +78,8 @@ local defaults = {
         ['J']='5j',
         ['K']='5k',
         ['L']='zz',
-        ['<C-s>']= '<ESC>:w<CR>', 
-        ['Y']= '"+y', 
+        ['<C-s>']= '<ESC>:w<CR>',
+        ['Y']= '"+y',
         ['*']= ':normal gv"+y<CR>/\\V<C-r>"<CR>',
     },
 
