@@ -50,7 +50,7 @@ require("bufferline").setup {
       {
         filetype = "NvimTree",
         text_align = "left",
-        text = " NvimTree",
+        text = "        Nvim Tree ",
         highlight = "ExplorerTitle",
         padding = 1,
       }

@@ -38,12 +38,6 @@ local commit = {
 
 local configurations = {
   { 'wbthomason/packer.nvim', commit = commit.packer },
-  { 'glepnir/zephyr-nvim' },
-  { 'shaunsingh/nord.nvim' },
-  {
-    'ellisonleao/gruvbox.nvim',
-    requires = {'rktjmp/lush.nvim'}
-  },
   {
     'kyazdani42/nvim-tree.lua',
     commit = commit.nvim_tree,
@@ -56,13 +50,8 @@ local configurations = {
   {
     'akinsho/bufferline.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    --commit = commit.bufferline,
+    commit = commit.bufferline,
   },
-  --  {
-  --    'romgrk/barbar.nvim',
-  --    requires = 'kyazdani42/nvim-web-devicons',
-  --    commit = commit.barbar,
-  --  },
   {
     'nvim-lualine/lualine.nvim',
     commit = commit.lualine,
