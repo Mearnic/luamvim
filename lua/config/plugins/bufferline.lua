@@ -6,8 +6,15 @@ end
 
 local function diagnostics_indicator(_, _, diagnostics)
   local result = {}
-  local symbols = { error = "", warning = "", info = "" }
-  for name, count in pairs(diagnostics) do
+  local symbols = {
+    error = " ",
+    warning = " ",
+    info = " ",
+    hint = " "
+  }
+  --local symbols = { error = " ", warning = " ", info = " "}
+  for
+    name, count in pairs(diagnostics) do
     if symbols[name] and count > 0 then
       table.insert(result, symbols[name] .. count)
     end
@@ -36,16 +43,12 @@ end
 
 require("bufferline").setup {
   options = {
-    -- 使用 nvim 内置lsp
     diagnostics = "nvim_lsp",
     diagnostics_indicator = diagnostics_indicator,
     custom_filter = custom_filter,
-
-    -- 左侧让出 nvim-tree 的位置
     offsets = {
       {
         filetype = "NvimTree",
---        text = "文件树",
         text_align = "left",
         text = " NvimTree",
         highlight = "ExplorerTitle",

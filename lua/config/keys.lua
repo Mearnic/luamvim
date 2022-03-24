@@ -15,7 +15,6 @@ local opt = {
 }
 
 local mode_types = {
-    normal_mode = "n",
     insert_mode = "i",
     normal_mode = "n",
     term_mode = "t",
@@ -100,7 +99,7 @@ local defaults = {
 }
 
 function M.load_defaults()
-    keymaps = defaults or {}
+    local keymaps = defaults or {}
     for mode, mapping in pairs(keymaps) do
         M.load_mode(mode, mapping)
     end

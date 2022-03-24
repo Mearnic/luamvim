@@ -48,7 +48,5 @@ vim.o.smartcase = true
 vim.o.list = true
 vim.o.listchars = "tab:> ,trail:▫"
 
-
-
 vim.cmd("colorscheme " .. "onedarker")
 

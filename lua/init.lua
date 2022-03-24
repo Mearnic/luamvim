@@ -1,6 +1,5 @@
 require('config/plugins')
 
--- require('config/plugins/bufferline')
 require('config/plugins/nvimtree')
 require('config/plugins/bufferline')
 require('config/plugins/lualine')

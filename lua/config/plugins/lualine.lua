@@ -9,27 +9,86 @@ lualine.setup {
     theme = "auto",
     component_separators = {left = "", right = ""},
     section_separators = {left = "", right = ""},
-    disabled_filetypes = {},
+    disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
     always_divide_middle = true
   },
   sections = {
-    lualine_a = {"mode"},
-    lualine_b = {
+    lualine_a = {
+      "mode"
     },
-    lualine_c = {"filename"},
+    lualine_b = {
+      "filename",
+    },
+    lualine_c = {
+      "diff",
+      {
+        "diagnostics",
+        sources = {"nvim_lsp"},
+        --      symbols = {error = " ", warn = " ", info = " ", hint = ""}
+        symbols = {
+          error = " ",
+          warning = " ",
+          info = " ",
+          hint = " "
+        }
+      },
+    },
     lualine_x = {
-      {"diagnostics", sources = {"nvim_lsp"}, symbols = {error = " ", warn = " ", info = " ", hint = " "}},
+    },
+    lualine_y = {
+      "progress",
+      {
+        "fileformat",
+        symbols = {
+          unix = "",
+          dos = "",
+          mac = "",
+        },
+      },
       "encoding",
     },
-    lualine_y = {},
-    lualine_z = {"progress"}
+    lualine_z = {
+      {
+        "branch",
+        icons_enabled = true,
+        icon = { " " },
+      },
+    },
   },
   inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {"filename"},
-    lualine_x = {"location"},
-    lualine_y = {},
+    lualine_a = {
+    },
+    lualine_b = {
+    },
+    lualine_c = {
+      {
+        "fileformat",
+        symbols = {
+          unix = "",
+          dos = "",
+          mac = "",
+        },
+      },
+      "encoding",
+      "filename",
+      "location",
+      "progress",
+    },
+    lualine_x = {
+      {
+        "diagnostics",
+        sources = {"nvim_lsp"},
+        symbols = {
+          error = " ",
+          warning = " ",
+          info = " ",
+          hint = " "
+        }
+      },
+      "diff",
+    },
+    lualine_y = {
+    },
     lualine_z = {}
   },
   tabline = {},
