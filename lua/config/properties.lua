@@ -21,6 +21,9 @@ vim.o.signcolumn = "yes"
 -- 恢复文件的位置
 -- vim.o.viewoptions = "cursor,folds,slash,unix"
 
+-- 自动换行
+vim.o.wrap=false
+
 -- 参考线
 -- vim.wo.colorcolumn = "80"
 
@@ -36,6 +39,7 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.bo.shiftwidth = 2
 
+
 -- 允许鼠标操作
 vim.o.mouse = "a"
 
@@ -47,7 +51,7 @@ vim.o.smartcase = true
 vim.o.updatetime=300
 
 -- 命令交互等待时间
-vim.o.timeoutlen=300
+vim.o.timeoutlen=250
 
 -- ESC响应卡顿问题
 vim.o.ttimeoutlen=0
@@ -55,6 +59,15 @@ vim.o.ttimeoutlen=0
 -- 不可见字符的显示，这里只把空格显示为一个点
 vim.o.list = true
 vim.o.listchars = "tab:> ,trail:▫"
+vim.o.clipboard = "unnamedplus"
 
 vim.cmd("colorscheme " .. "onedarker")
 
+
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.showmode = false
+vim.o.swapfile = false
+
+vim.o.scrolloff = 8 -- 光标上方和下方的最小屏幕行数。
+vim.o.sidescrolloff = 15 -- 保持光标左右的最小屏幕行数。

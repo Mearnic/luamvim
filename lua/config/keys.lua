@@ -84,7 +84,7 @@ local defaults = {
         ['K']='5k',
         ['L']='zz',
         ['<C-s>']='<ESC>:w<CR>',
-        ['Y']='"+y',
+        --['Y']='"+y',
         ['*']=':normal gv"+y<CR>/\\V<C-r>"<CR>',
     },
     command_mode = {
