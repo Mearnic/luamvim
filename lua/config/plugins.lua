@@ -174,5 +174,8 @@ require('config/plugins/comment')
 require('config/plugins/project')
 require('config/plugins/toggleterm')
 require("config/plugins/cmp")
--- require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip/loaders/from_vscode").lazy_load()
 require("config.plugins.autopairs")
+
+
+
