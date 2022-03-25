@@ -72,7 +72,7 @@ vim.o.foldlevel=99
 vim.o.showmode = false
 vim.o.swapfile = false
 
-vim.o.scrolloff = 8 -- 光标上方和下方的最小屏幕行数。
+vim.o.scrolloff = 0 -- 光标上方和下方的最小屏幕行数。
 vim.o.sidescrolloff = 15 -- 保持光标左右的最小屏幕行数。
 vim.o.writebackup = false
 
