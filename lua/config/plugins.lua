@@ -91,6 +91,10 @@ local configurations = {
     "lewis6991/gitsigns.nvim",
     commit = commit.gitsigns,
   },
+  {
+    "numToStr/Comment.nvim",
+    commit = commit.comment,
+  },
 }
 
 local packer = require('packer');
@@ -111,3 +115,4 @@ require('config/plugins/whichkey')
 require('config/plugins/telescope')
 require('config/plugins/treesitter')
 require('config/plugins/gitsigns')
+require('config/plugins/comment')
