@@ -1,4 +1,3 @@
-
 -- 文本编码格式
 vim.g.encoding = "UTF-8"
 -- 文件编码格式
@@ -64,10 +63,22 @@ vim.o.clipboard = "unnamedplus"
 vim.cmd("colorscheme " .. "onedarker")
 
 
+-- 代折叠策略
+vim.o.foldenable=true
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldlevel=99
+
 vim.o.showmode = false
 vim.o.swapfile = false
 
 vim.o.scrolloff = 8 -- 光标上方和下方的最小屏幕行数。
 vim.o.sidescrolloff = 15 -- 保持光标左右的最小屏幕行数。
+vim.o.writebackup = false
+
+ -- 不显示默认信息
+vim.opt.shortmess:append "c"
+vim.opt.shortmess:append "I"
+-- 左右可换行
+vim.opt.whichwrap:append "<,>,[,],h,l"
+
