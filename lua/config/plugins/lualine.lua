@@ -1,39 +1,98 @@
 local status, lualine = pcall(require, "lualine")
 if (not status) then
-    return
+  return
 end
 
 lualine.setup {
-    options = {
+  options = {
+    icons_enabled = true,
+    theme = "auto",
+    component_separators = {left = "", right = ""},
+    section_separators = {left = "", right = ""},
+    disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
+    always_divide_middle = true
+  },
+  sections = {
+    lualine_a = {
+      "mode"
+    },
+    lualine_b = {
+      "filename",
+    },
+    lualine_c = {
+      "diff",
+      {
+        "diagnostics",
+        sources = {"nvim_lsp"},
+        --      symbols = {error = " ", warn = " ", info = " ", hint = ""}
+        symbols = {
+          error = " ",
+          warning = " ",
+          info = " ",
+          hint = " "
+        }
+      },
+    },
+    lualine_x = {
+    },
+    lualine_y = {
+      "progress",
+      {
+        "fileformat",
+        symbols = {
+          unix = "",
+          dos = "",
+          mac = "",
+        },
+      },
+      "encoding",
+    },
+    lualine_z = {
+      {
+        "branch",
         icons_enabled = true,
-        theme = "auto",
-        component_separators = {left = "", right = ""},
-        section_separators = {left = "", right = ""},
-        disabled_filetypes = {},
-        always_divide_middle = true
+        icon = { " " },
+      },
     },
-    sections = {
-        lualine_a = {"mode"},
-        lualine_b = {
+  },
+  inactive_sections = {
+    lualine_a = {
+    },
+    lualine_b = {
+    },
+    lualine_c = {
+      {
+        "fileformat",
+        symbols = {
+          unix = "",
+          dos = "",
+          mac = "",
         },
-        lualine_c = {"filename"},
-        lualine_x = {
-            {"diagnostics", sources = {"nvim_lsp"}, symbols = {error = " ", warn = " ", info = " ", hint = " "}},
-            "encoding",
-        },
-        lualine_y = {},
-        lualine_z = {"progress"}
+      },
+      "encoding",
+      "filename",
+      "location",
+      "progress",
     },
-    inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {"filename"},
-        lualine_x = {"location"},
-        lualine_y = {},
-        lualine_z = {}
+    lualine_x = {
+      {
+        "diagnostics",
+        sources = {"nvim_lsp"},
+        symbols = {
+          error = " ",
+          warning = " ",
+          info = " ",
+          hint = " "
+        }
+      },
+      "diff",
     },
-    tabline = {},
-    extensions = {}
+    lualine_y = {
+    },
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = { "nvim-tree" }
 }
 
 
