@@ -49,8 +49,9 @@ require("bufferline").setup {
     offsets = {
       {
         filetype = "NvimTree",
-        text_align = "left",
-        text = "        Nvim Tree ",
+        text_align = "center",
+        -- text = "  NvimTree  ",
+        text = "  Mearnic ",
         highlight = "ExplorerTitle",
         padding = 1,
       }
