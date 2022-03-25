@@ -58,7 +58,7 @@ require'nvim-tree'.setup {
   auto_close = false,
   open_on_tab = false,
   hijack_cursor = false,
-  update_cwd = false,
+  update_cwd = true,
   diagnostics = {
     enable = true,
     icons = {
@@ -131,3 +131,9 @@ vim.g.nvim_tree_show_icons = {
   git = false,
   folders = false,
 }
+
+
+-- lua
+vim.g.nvim_tree_respect_buf_cwd = 1
+
+
