@@ -11,11 +11,11 @@ local commit = {
   nvim_treesitter = "620cc936ad6b26c59bb2d888b3890bb8d06c50c7",
   nvim_ts_context_commentstring = "097df33c9ef5bbd3828105e4bee99965b758dc3f",
   --    nvim_notify = "15f52efacd169ea26b0f4070451d3ea53f98cd5a",
-  --    luasnip = "59576a5cf28556a393eedfe38467e998288fc905",
+  luasnip = "59576a5cf28556a393eedfe38467e998288fc905",
   --    nlsp_settings = "3a3942b5d1da30e3ca0dc431aada3191c5952054",
   --    null_ls = "59067dae4bf2367eb06326e419c23353722ecbec",
-  --    nvim_autopairs = "97e454ce9b1371373105716d196c1017394bc947",
-  --    nvim_cmp = "d93104244c3834fbd8f3dd01da9729920e0b5fe7",
+  nvim_autopairs = "97e454ce9b1371373105716d196c1017394bc947",
+  nvim_cmp = "d93104244c3834fbd8f3dd01da9729920e0b5fe7",
   --    nvim_dap = "c9a58267524f560112ecb6faa36ab2b5bc2f78a3",
   plenary = "563d9f6d083f0514548f2ac4ad1888326d0a1c66",
   --    popup = "b7404d35d5d3548a82149238289fa71f7f6de4ac",
@@ -24,15 +24,15 @@ local commit = {
   telescope = "0011b1148d3975600f5a9f0be8058cdaac4e30d9",
   telescope_fzf_native = "b8662b076175e75e6497c59f3e2799b879d7b954",
   toggleterm = "d2ceb2ca3268d09db3033b133c0ee4642e07f059",
-  --    cmp_buffer = "f83773e2f433a923997c5faad7ea689ec24d1785",
-  --    cmp_luasnip = "d6f837f4e8fe48eeae288e638691b91b97d1737f",
-  --    cmp_nvim_lsp = "ebdfc204afb87f15ce3d3d3f5df0b8181443b5ba",
-  --    cmp_path = "c5230cb439df9547294678d0f1c1465ad7989e5f",
+  cmp_buffer = "f83773e2f433a923997c5faad7ea689ec24d1785",
+  cmp_luasnip = "d6f837f4e8fe48eeae288e638691b91b97d1737f",
+  cmp_nvim_lsp = "ebdfc204afb87f15ce3d3d3f5df0b8181443b5ba",
+  cmp_path = "c5230cb439df9547294678d0f1c1465ad7989e5f",
   comment = "7365bfe9fc6dc004cc97b8977aa8129999d81bf5",
   --    dapinstall = "24923c3819a450a772bb8f675926d530e829665f",
   --    dashboard_nvim = "d82ddae95fd4dc4c3b7bbe87f09b1840fbf20ecb",
   fixcursorhold = "0e4e22d21975da60b0fd2d302285b3b603f9f71e",
-  --    friendly_snippets = "4f6bd8eb5fbe0e45d57e732783ead2c3a01f549c",
+  friendly_snippets = "4f6bd8eb5fbe0e45d57e732783ead2c3a01f549c",
   gitsigns = "4a2d30f5fb77750c7a42be9bb58a9cc2c6c7f31d",
   --    lua_dev = "a0ee77789d9948adce64d98700cc90cecaef88d5",
 }
@@ -104,6 +104,52 @@ local configurations = {
     commit = commit.toggleterm,
   },
 
+  {
+    "hrsh7th/nvim-cmp",
+    commit = commit.nvim_cmp,
+--    config = function()
+--      if lvim.builtin.cmp then
+--        require("lvim.core.cmp").setup()
+--      end
+--    end,
+    requires = {
+      "L3MON4D3/LuaSnip",
+      "rafamadriz/friendly-snippets",
+    },
+  },
+  {
+    "rafamadriz/friendly-snippets",
+    commit = commit.friendly_snippets,
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require("luasnip/loaders/from_vscode").lazy_load()
+    end,
+    commit = commit.luasnip,
+  },
+  {
+    "hrsh7th/cmp-nvim-lsp",
+    commit = commit.cmp_nvim_lsp,
+  },
+  {
+    "saadparwaiz1/cmp_luasnip",
+    commit = commit.cmp_luasnip,
+  },
+  {
+    "hrsh7th/cmp-buffer",
+    commit = commit.cmp_buffer,
+  },
+  {
+    "hrsh7th/cmp-path",
+    commit = commit.cmp_path,
+  },
+
+  {
+    "windwp/nvim-autopairs",
+    commit = commit.nvim_autopairs,
+  },
+
 }
 
 local packer = require('packer');
@@ -127,3 +173,6 @@ require('config/plugins/gitsigns')
 require('config/plugins/comment')
 require('config/plugins/project')
 require('config/plugins/toggleterm')
+require("config/plugins/cmp")
+-- require("luasnip/loaders/from_vscode").lazy_load()
+require("config.plugins.autopairs")
