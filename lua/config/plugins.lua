@@ -34,6 +34,7 @@ local commit = {
   fixcursorhold = "0e4e22d21975da60b0fd2d302285b3b603f9f71e",
   friendly_snippets = "4f6bd8eb5fbe0e45d57e732783ead2c3a01f549c",
   gitsigns = "4a2d30f5fb77750c7a42be9bb58a9cc2c6c7f31d",
+  glow= "c6685381d31df262b776775b9f4252f6c7fa98d0",
   --    lua_dev = "a0ee77789d9948adce64d98700cc90cecaef88d5",
 }
 
@@ -150,6 +151,11 @@ local configurations = {
     commit = commit.nvim_autopairs,
   },
 
+  {
+    "ellisonleao/glow.nvim",
+    commit = commit.glow,
+  },
+
 }
 
 local packer = require('packer');
@@ -164,6 +170,7 @@ end)
 
 
 require('config/plugins/nvimtree')
+--require('config/plugins/nvimtree').buffer_distinct()
 require('config/plugins/bufferline')
 require('config/plugins/lualine')
 require('config/plugins/whichkey')
@@ -176,3 +183,9 @@ require('config/plugins/toggleterm')
 require("config/plugins/cmp")
 -- require("luasnip/loaders/from_vscode").lazy_load()
 require("config.plugins.autopairs")
+
+
+
+vim.g.glow_border = "rounded"
+-- vim.g.glow_use_pager = true
+-- vim.g.glow_style = "light"

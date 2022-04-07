@@ -1,3 +1,5 @@
+local M = {}
+
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 local list = {
   { key = {"<CR>", "<2-LeftMouse>"},          cb = tree_cb("edit") },
@@ -39,7 +41,7 @@ require'nvim-tree'.setup {
   disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
-  ignore_buffer_on_setup = false,
+  ignore_buffer_on_setup = true,
   ignore_ft_on_setup = {
     "startify",
     "dashboard",
@@ -123,7 +125,46 @@ require'nvim-tree'.setup {
       exclude = {},
     },
   },
+
+
 }
+
+local a = vim.api
+
+
+local function find_rogue_buffer()
+  for _, v in ipairs(a.nvim_list_bufs()) do
+    if vim.fn.bufname(v) == "NvimTree" then
+      return v
+    end
+  end
+  return nil
+end
+
+local function _wipe_rogue_buffer()
+  local bn = find_rogue_buffer()
+  if bn then
+    local win_ids = vim.fn.win_findbuf(bn)
+    for _, id in ipairs(win_ids) do
+      if vim.fn.win_gettype(id) ~= "autocmd" then
+        a.nvim_win_close(id, true)
+      end
+    end
+    -- Do not use `nvim_buf_delete` here as it throws an uncacthable error if
+    -- the buffer is in an autocmd window.
+    a.nvim_command("silent! bw " .. bn)
+  end
+end
+
+function M.buffer_distinct()
+  local bufnr = a.nvim_create_buf(false, false)
+
+  if not pcall(a.nvim_buf_set_name, bufnr, 'NvimTree') then
+    _wipe_rogue_buffer()
+    a.nvim_buf_set_name(bufnr, 'NvimTree')
+  end
+end
+
 
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_root_folder_modifier= ":t"
@@ -134,6 +175,6 @@ vim.g.nvim_tree_show_icons = {
 
 
 -- lua
-vim.g.nvim_tree_respect_buf_cwd = 1
+vim.g.nvim_tree_respect_buf_cwd = 0
 
 

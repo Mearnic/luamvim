@@ -56,9 +56,12 @@ local defaults = {
     ['<C-s>']=':w<CR>',
     ['<C-q>']=':q<CR>',
 
+    --['<LEADER>e']= ':NvimTreeToggle<CR>',
     ['<LEADER>e']= ':NvimTreeToggle<CR><C-w>p',
+    ['<LEADER>p']= ':Glow<CR>',
     ['<A-r>']= ':NvimTreeFindFile<CR>',
     ['®']= ':NvimTreeFindFile<CR>',
+    ['<LEADER>v']= ':Glow<CR><C-w>|<C-w>_',
   },
 
   insert_mode = {
