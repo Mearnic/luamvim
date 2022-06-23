@@ -7,7 +7,8 @@ local commit = {
   nvim_web_devicons = "634e26818f2bea9161b7efa76735746838971824",
   packer = "7182f0ddbca2dd6f6723633a84d47f4d26518191",
   which_key = "28d2bd129575b5e9ebddd88506601290bb2bb221",
-
+  zephyr = "1eea36117a8ca4f3250c0223e78a690cdc720f9e",
+  onedark = "af5595a5bf2358ef8611ab98f5e3c058b321c38f",
   nvim_treesitter = "620cc936ad6b26c59bb2d888b3890bb8d06c50c7",
   nvim_ts_context_commentstring = "097df33c9ef5bbd3828105e4bee99965b758dc3f",
   --    nvim_notify = "15f52efacd169ea26b0f4070451d3ea53f98cd5a",
@@ -39,6 +40,7 @@ local commit = {
 }
 
 local configurations = {
+  { 'navarasu/onedark.nvim', commit = commit.onedark },
   { 'wbthomason/packer.nvim', commit = commit.packer },
   {
     'kyazdani42/nvim-tree.lua',
@@ -183,8 +185,41 @@ require('config/plugins/toggleterm')
 require("config/plugins/cmp")
 -- require("luasnip/loaders/from_vscode").lazy_load()
 require("config.plugins.autopairs")
+-- Lua
+require('onedark').setup  {
+    -- Main options --
+    style = 'deep', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    transparent = false,  -- Show/hide background
+    term_colors = true, -- Change terminal color as per the selected theme style
+    ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+    cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+    -- toggle theme style ---
+    toggle_style_key = '<leader>ts', -- Default keybinding to toggle
+    toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
 
+    -- Change code style ---
+    -- Options are italic, bold, underline, none
+    -- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
+    code_style = {
+        comments = 'italic',
+        keywords = 'none',
+        functions = 'none',
+        strings = 'none',
+        variables = 'none'
+    },
 
+    -- Custom Highlights --
+    colors = {}, -- Override default colors
+    highlights = {}, -- Override highlight groups
+
+    -- Plugins Config --
+    diagnostics = {
+        darker = true, -- darker colors for diagnostic
+        undercurl = true,   -- use undercurl instead of underline for diagnostics
+        background = true,    -- use background color for virtual text
+    },
+}
+require('onedark').load()
 
 vim.g.glow_border = "rounded"
 -- vim.g.glow_use_pager = true

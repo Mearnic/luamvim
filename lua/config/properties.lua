@@ -60,7 +60,7 @@ vim.o.list = true
 vim.o.listchars = "tab:> ,trail:▫"
 vim.o.clipboard = "unnamedplus"
 
-vim.cmd("colorscheme " .. "onedarker")
+--vim.cmd("colorscheme " .. "onedark")
 
 
 -- 代折叠策略
