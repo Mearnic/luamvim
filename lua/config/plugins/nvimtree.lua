@@ -57,7 +57,7 @@ require'nvim-tree'.setup {
     enable = true,
     auto_open = true,
   },
-  auto_close = false,
+  --auto_close = false,
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
@@ -119,11 +119,11 @@ require'nvim-tree'.setup {
     open_file = {
       quit_on_open = false,
     },
-    window_picker = {
-      enable = false,
-      chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-      exclude = {},
-    },
+--    window_picker = {
+--      enable = false,
+--      chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+--      exclude = {},
+--    },
   },
 
 
