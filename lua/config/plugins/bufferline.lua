@@ -52,7 +52,7 @@ require("bufferline").setup {
         text_align = "center",
         -- text = "  NvimTree  ",
         text = "  Mearnic ",
-        highlight = "ExplorerTitle",
+        highlight = "DiffText",
         padding = 1,
       }
     },
