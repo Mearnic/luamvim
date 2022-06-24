@@ -73,6 +73,7 @@ local lazygit = Terminal:new({
   end,
   on_close = function(term)
     init_flag = false
+    open_flag = false
   end,
 })
 
