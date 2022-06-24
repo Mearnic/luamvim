@@ -6,13 +6,14 @@ require'nvim-treesitter.configs'.setup {
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   -- sync_install = true,
+  -- 节点选择
   incremental_selection = {
     enable = true,
     keymaps = {
-      --      init_selection = '<CR>',
-      --      node_incremental = '<CR>',
-      --      node_decremental = '<BS>',
-      --      scope_incremental = '<TAB>',
+--      init_selection = '<CR>',
+--      node_incremental = '<CR>',
+--      node_decremental = '<BS>',
+--      scope_incremental = '<TAB>',
     }
   },
   context_commentstring = {
