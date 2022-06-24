@@ -87,7 +87,7 @@ vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {nor
 --vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>ToggleTerm size=10 direction=horizontal<CR>", {noremap = true, silent = true})
 --
 function set_terminal_keymaps()
-  vim.api.nvim_set_keymap('t', '<œ>', [[<C-\><C-n>]], {noremap = true, silent = true})
+  vim.api.nvim_set_keymap('t', 'œ', [[<C-\><C-n>]], {noremap = true, silent = true})
   vim.api.nvim_set_keymap('t', '<A-q>', [[<C-\><C-n>]], {noremap = true, silent = true})
 end
 --  -- vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
