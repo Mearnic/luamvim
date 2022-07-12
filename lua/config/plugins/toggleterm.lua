@@ -130,13 +130,6 @@ function _winf_toggle()
   end
 end
 
-vim.api.nvim_set_keymap("n", "<A-o>", "<cmd>lua _winf_toggle()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("t", "<A-o>", "<cmd>lua _winf_toggle()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("i", "<A-o>", "<cmd>lua _winf_toggle()<CR>a", {noremap = true, silent = true})
-
-vim.api.nvim_set_keymap("n", "ø", "<cmd>lua _winf_toggle()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("t", "ø", "<cmd>lua _winf_toggle()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("i", "ø", "<cmd>lua _winf_toggle()<CR>a", {noremap = true, silent = true})
 
 local win = Terminal:new({
 --  cmd = "lazygit",
@@ -162,25 +155,14 @@ function _win_toggle()
     win:toggle()
   end
 end
+vim.api.nvim_set_keymap("n", "<F4>", "<cmd>exe v:count1 . 'ToggleTerm'<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("t", "<F4>", "<cmd>exe v:count1 . 'ToggleTerm'<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("i", "<F4>", "<cmd>exe v:count1 . 'ToggleTerm'<CR>a", {noremap = true, silent = true})
 
-vim.api.nvim_set_keymap("n", "<A-l>", "<cmd>lua _win_toggle()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("t", "<A-l>", "<cmd>lua _win_toggle()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("i", "<A-l>", "<cmd>lua _win_toggle()a<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<A-t>", "<cmd>lua _win_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("t", "<A-t>", "<cmd>lua _win_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("i", "<A-t>", "<cmd>lua _win_toggle()<CR>a", {noremap = true, silent = true})
 
-vim.api.nvim_set_keymap("n", "¬", "<cmd>lua _win_toggle()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("t", "¬", "<cmd>lua _win_toggle()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("i", "¬", "<cmd>lua _win_toggle()<CR>a", {noremap = true, silent = true})
-
-
---autocmd TermEnter term://*toggleterm#*
---      \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
---
---nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
---inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
-vim.api.nvim_set_keymap("n", "<A-t>", "<cmd>exe v:count1 . 'ToggleTerm'<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("t", "<A-t>", "<cmd>exe v:count1 . 'ToggleTerm'<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("i", "<A-t>", "<cmd>exe v:count1 . 'ToggleTerm'<CR>a", {noremap = true, silent = true})
-
-vim.api.nvim_set_keymap("n", "†", "<cmd>exe v:count1 . 'ToggleTerm'<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("t", "†", "<cmd>exe v:count1 . 'ToggleTerm'<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("i", "†", "<cmd>exe v:count1 . 'ToggleTerm'<CR>a", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-t>", "<cmd>lua _winf_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("t", "<C-t>", "<cmd>lua _winf_toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("i", "<C-t>", "<cmd>lua _winf_toggle()<CR>a", {noremap = true, silent = true})
