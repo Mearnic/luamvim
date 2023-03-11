@@ -35,8 +35,8 @@ local generic_opts = {
 
 local defaults = {
   normal_mode= {
-    ['J']='',
-    ['K']='',
+    ['J']='5j',
+    ['K']='5k',
 
     ['|']='J',
     ['?']='K',
@@ -51,6 +51,8 @@ local defaults = {
     ['<A-x>']='<C-x>',
     ['å']='<C-a>',
     ['≈']='<C-x>',
+    ['<C-a>']='<HOME>',
+    ['<C-e>']='<END>',
 
     [';']=':',
     ['<C-s>']=':w<CR>',
@@ -78,7 +80,7 @@ local defaults = {
     ['H']='M',
     ['J']='5j',
     ['K']='5k',
-    ['L']='zz',
+--   ['L']='zz',
     ['<C-s>']= '<ESC>:w<CR>',
     ['Y']= '"+y',
     ['*']= ':normal gv"+y<CR>/\\V<C-r>"<CR>',
